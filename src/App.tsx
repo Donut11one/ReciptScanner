@@ -1,8 +1,8 @@
 import React from 'react';
-
+import ImageUploader from './component/UploadImage/UploadSection';
 const InitialComponent: React.FC = () => {
     return (
-        <h1>Hello World React+webpack test</h1>
+        <ImageUploader/>
     )
 }
 
