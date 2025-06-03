@@ -19,6 +19,9 @@
     margin-top: 2rem;
     display: flex;
     justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 32px;
+    padding: 16px;
 
     &_preview-image {
       max-width: 100%;

@@ -7,8 +7,10 @@ const TranslateSection: React.FC = () =>{
     return (
         <div className="rs-translate-section">
             <ImageUploader/>
-            <div>
-                info text
+            <div className="rs-translate-section_arrow">
+                <p>
+                    to the right
+                </p>
             </div>
             <div className="rs-translate-section_translated-section">
                 Translated to Text
