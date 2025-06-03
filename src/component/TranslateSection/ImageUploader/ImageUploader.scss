@@ -1,27 +1,30 @@
-.image-uploader {
-  text-align: center;
-  padding: 2rem;
-
-  .upload-instruction {
+.rs-translate-section{
+  &_image-uploader {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  &_upload-instruction {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
     color: #333;
   }
 
-  .file-input {
+  &_file-input {
     margin-bottom: 1.5rem;
     padding: 0.3rem;
   }
-
-  .preview-container {
+  
+  &_preview-container {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
 
-    .preview-image {
+    &_preview-image {
       max-width: 100%;
       border: 1px solid #ccc;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
   }
 }
+

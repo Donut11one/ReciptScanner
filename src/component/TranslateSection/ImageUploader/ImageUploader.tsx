@@ -15,8 +15,8 @@ const ImageUploader: React.FC = () => {
   };
 
   return (
-    <div className="image-uploader">
-      <p className="upload-instruction">Upload Recipt</p>
+    <div className="rs-translate-section_image-uploader">
+      <p className="rs-translate-section_image-uploader_upload-instruction">Upload Recipt</p>
       <input
         type="file"
         accept="image/*"
@@ -24,11 +24,11 @@ const ImageUploader: React.FC = () => {
         className="file-input"
       />
       {imageURL && (
-        <div className="preview-container">
+        <div className="rs-translate-section_preview-container">
           <img
             src={imageURL}
             alt="Uploaded Preview"
-            className="preview-image"
+            className="rs-translate-section_preview-container_preview-image"
           />
         </div>
       )}

@@ -1,8 +1,8 @@
 import React from 'react';
-import ImageUploader from './component/ImageUploader/ImageUploader';
+import TranslateSection from './component/TranslateSection/TranslateSection';
 const InitialComponent: React.FC = () => {
     return (
-        <ImageUploader/>
+        <TranslateSection/>
     )
 }
 
