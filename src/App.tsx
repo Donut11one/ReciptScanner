@@ -1,8 +1,8 @@
 import React from 'react';
-
+import TranslateSection from './component/TranslateSection/TranslateSection';
 const InitialComponent: React.FC = () => {
     return (
-        <h1>Hello World React+webpack test</h1>
+        <TranslateSection/>
     )
 }
 
