@@ -1,9 +1,22 @@
 import React from 'react';
-import TranslateSection from './component/TranslateSection/TranslateSection';
-const InitialComponent: React.FC = () => {
-    return (
-        <TranslateSection/>
-    )
-}
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Translate from './pages/translate';
+import ErrorPage from './pages/error';
+import MainLayout from './component/MainLayout';
 
-export default InitialComponent
+const App: React.FC = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route element={<MainLayout />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/translate" element={<Translate />} />
+                </Route>
+                <Route path="*" element={<ErrorPage />} />
+            </Routes>
+        </Router>
+    );
+};
+
+export default App;
