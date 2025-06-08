@@ -5,7 +5,7 @@ const Error: React.FC = () => {
     return (
         <div>
             <h1>404 Error</h1>
-            <Link to="/home">Go to Home</Link>
+            <Link to="/">Go to Home</Link>
         </div>
     );
 };

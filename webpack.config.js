@@ -31,11 +31,12 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader', // Injects styles into DOM
           'css-loader',   // Turns CSS into CommonJS
           'sass-loader',  // Compiles Sass to CSS
+          'postcss-loader' // For Tail
         ]
       }
     ],
