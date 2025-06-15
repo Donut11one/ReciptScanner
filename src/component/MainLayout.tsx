@@ -1,5 +1,5 @@
 import React from 'react';
-import TopBar from './TopBar/TopBar';
+import TopBar from './NavigationBar/NavigationBar';
 import { Outlet } from 'react-router-dom';
 
 const MainLayout: React.FC = () => {
