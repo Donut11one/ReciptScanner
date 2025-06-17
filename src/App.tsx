@@ -4,7 +4,10 @@ import Home from './pages/home';
 import Translate from './pages/translate';
 import ErrorPage from './pages/error';
 import MainLayout from './component/MainLayout';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
+library.add(fas)
 const App: React.FC = () => {
     return (
         <Router>
