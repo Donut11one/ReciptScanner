@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-const TopBar: React.FC = () => {
+const NavigationBar: React.FC = () => {
   return (
     <nav className="navbar navbar-dark bg-dark px-4 py-3">
       <div className="container-fluid d-flex justify-content-between align-items-center">
@@ -43,4 +43,4 @@ const TopBar: React.FC = () => {
   );
 };
 
-export default TopBar;
+export default NavigationBar;
