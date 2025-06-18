@@ -1,9 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Translate from './pages/translate';
+import ErrorPage from './pages/error';
+import NavigationBar from './component/NavigationBar/NavigationBar';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
-const InitialComponent: React.FC = () => {
+library.add(fas)
+const App: React.FC = () => {
     return (
-        <h1>Hello World React+webpack test</h1>
-    )
-}
+        <Router>
+            <NavigationBar/>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/translate" element={<Translate />} />
+                <Route path="*" element={<ErrorPage />} />
+            </Routes>
+        </Router>
+    );
+};
 
-export default InitialComponent
+export default App;
