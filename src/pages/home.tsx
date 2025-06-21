@@ -1,11 +1,12 @@
 import React from "react";
+import HeroSection from "../component/HomePage/HeroSection/HeroSection"
 import BodyStory from "../component/HomePage/BodyStory/BodyStory";
 
 const Home: React.FC = () => {
   return (
     <div>
       <div className="hero-section">
-        <h1>hero section placeholder</h1>
+        <HeroSection/>
       </div>
       <div className="body-side-story-section">
       <BodyStory
