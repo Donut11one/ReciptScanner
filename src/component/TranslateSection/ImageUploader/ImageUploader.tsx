@@ -1,8 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { createWorker } from "tesseract.js";
 import "./ImageUploader.scss";
 
 const ImageUploader: React.FC = () => {
   const [imageURL, setImageURL] = useState<string | null>(null);
+  const [recognitionText, setRecognitionText] = useState<string>("");
+
+  useEffect(() => {
+    if (imageURL) {
+      tesseractRecognition(imageURL);
+    }
+  }, [imageURL]);
+
+  const tesseractRecognition = async (imageUrl: string) => {
+    const worker = await createWorker("eng");
+    const ret = await worker.recognize(imageUrl);
+    setRecognitionText(ret.data.text);
+    console.log(ret.data.text);
+    await worker.terminate();
+  };
 
   const handleFileChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -16,7 +32,9 @@ const ImageUploader: React.FC = () => {
 
   return (
     <div className="rs-translate-section_image-uploader">
-      <p className="rs-translate-section_image-uploader_upload-instruction">Upload Recipt</p>
+      <p className="rs-translate-section_image-uploader_upload-instruction">
+        Upload Recipt
+      </p>
       <input
         type="file"
         accept="image/*"
@@ -31,6 +49,9 @@ const ImageUploader: React.FC = () => {
             className="rs-translate-section_preview-container_preview-image"
           />
         </div>
+      )}
+      {recognitionText && (
+        <h1>{recognitionText}</h1>
       )}
     </div>
   );
