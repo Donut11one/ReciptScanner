@@ -2,7 +2,7 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const autoprefixer = require('autoprefixer')
+const autoprefixer = require("autoprefixer");
 
 // Here goes all configuration
 module.exports = {
@@ -67,6 +67,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+      test: /\.(png|jpg|jpeg|svg|gif)$/i, 
+      type: "asset/resource", 
       },
     ],
   },
