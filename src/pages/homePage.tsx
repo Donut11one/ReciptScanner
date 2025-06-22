@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "../component/HomePage/HeroSection/HeroSection"
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <div>
       <div className="hero-section">
@@ -20,4 +20,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
