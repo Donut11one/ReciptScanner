@@ -22,8 +22,8 @@ const NavigationBar: React.FC = () => {
           <Link to="/" className="btn btn-dark fw-bold px-4">
             Home
           </Link>
-          <Link to="/translate" className="btn btn-dark fw-bold px-4">
-            Translate
+          <Link to="/add" className="btn btn-dark fw-bold px-4">
+            Add
           </Link>
         </div>
 

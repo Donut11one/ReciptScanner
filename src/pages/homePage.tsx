@@ -4,7 +4,7 @@ import BodyStory from "../component/HomePage/BodyStory/BodyStory";
 import CatTyping from "../assets/CatTyping.gif";
 import HandScanning from "../assets/Scanning.gif"
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <div>
       <div className="hero-section">
@@ -37,4 +37,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
