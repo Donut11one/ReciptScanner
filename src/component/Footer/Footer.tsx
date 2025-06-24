@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Container
 const FooterContainer = styled.div`
-  background-color: #111;
-  color: #f0f0f0;
+  background-color: #000000;
+  color: #FFFFFF;
   padding: 60px 20px 30px;
   display: flex;
   flex-direction: row;
@@ -20,19 +20,19 @@ const FooterContainer = styled.div`
 `;
 
 // Sections
-const Section = styled.div`
+const FooterSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
 `;
 
-const Heading = styled.h2`
+const FooterHeading = styled.h2`
   font-size: 20px;
   margin: 0;
 `;
 
-const EmailLink = styled.a`
-  color: #f0f0f0;
+const FooterEmailLink = styled.a`
+  color: #FFFFFF;
   text-decoration: none;
   font-size: 16px;
   display: flex;
@@ -40,11 +40,11 @@ const EmailLink = styled.a`
   gap: 10px;
 
   &:hover {
-    color: #00d8ff;
+    color: #7D46F2;
   }
 `;
 
-const LinkGroup = styled.div`
+const FooterLinkGroup = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -52,73 +52,63 @@ const LinkGroup = styled.div`
   flex-wrap: wrap;
 `;
 
-const FooterLink = styled.a`
-  color: #f0f0f0;
+const FooterPageLink = styled.a`
+  color: #FFFFFF;
   text-decoration: none;
   font-size: 16px;
 
   &:hover {
     text-decoration: underline;
-    color: #00d8ff;
+    color: #7D46F2;
   }
 `;
 
-const SocialIcons = styled.div`
+const FooterSocialIcons = styled.div`
   display: flex;
   gap: 15px;
   justify-content: center;
 
   a {
-    color: #f0f0f0;
+    color: #FFFFFF;
     font-size: 18px;
     transition: color 0.3s;
 
     &:hover {
-      color: #00d8ff;
+      color: #7D46F2;
     }
   }
-`;
-
-const Divider = styled.hr`
-  width: 80%;
-  border: 0.5px solid #333;
-`;
-
-const Copyright = styled.p`
-  font-size: 14px;
-  color: #888;
 `;
 
 const Footer: React.FC = () => {
   return (
     <FooterContainer>
-      <Section>
-        <Heading>Sponsor Us</Heading>
-        <EmailLink href="mailto:contact@example.com">
-          <FontAwesomeIcon icon={faEnvelope} />
+      <FooterSection>
+        <FooterHeading>Sponsor</FooterHeading>
+        <FooterEmailLink href="mailto:contact@example.com">
+          <FontAwesomeIcon icon={faEnvelope}/>
           contact@example.com
-        </EmailLink>
-      </Section>
+        </FooterEmailLink>
+      </FooterSection>
 
-      <Section>
-        <Heading>Quick Links</Heading>
-        <LinkGroup>
-          <FooterLink href="#">Home</FooterLink>
-          <FooterLink href="#">Add</FooterLink>
-          <FooterLink href="#">Support</FooterLink>
-        </LinkGroup>
-      </Section>
+      <FooterSection>
+        <FooterHeading>Quick Links</FooterHeading>
+        <FooterLinkGroup>
+          <FooterPageLink href="#">Home</FooterPageLink>
+          <FooterPageLink href="/add">Add</FooterPageLink>
+          <FooterPageLink href="#">Support</FooterPageLink>
+        </FooterLinkGroup>
+      </FooterSection>
 
       {/* Social Media Section */}
-      <Section>
-        <Heading>Follow Us</Heading>
-        <SocialIcons>
+      <FooterSection>
+        <FooterHeading>Follow Us</FooterHeading>
+        <FooterSocialIcons>
           <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
           <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
           <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
           <a href="#"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-        </SocialIcons>
-      </Section>
+        </FooterSocialIcons>
+      </FooterSection>
     </FooterContainer>
   );
 };
