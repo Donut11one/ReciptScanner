@@ -20,7 +20,7 @@ const HeroContentComponent = Styled.div`
 `;
 
 
-const HeroSection: React.FC = () => {
+export const HeroSection: React.FC = () => {
   return (
     <HeroComponent>
       <HeroContentComponent>
@@ -38,4 +38,3 @@ const HeroSection: React.FC = () => {
     </HeroComponent>
   );
 };
-export default HeroSection;

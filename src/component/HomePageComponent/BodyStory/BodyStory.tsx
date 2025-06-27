@@ -27,7 +27,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const BodyStory = (props: any) => {
+export const BodyStory = (props: any) => {
   const { title, content, imageSrc, isImageRight } = props;
   return (
     <BodyStoryComponent>
@@ -48,5 +48,3 @@ const BodyStory = (props: any) => {
     </BodyStoryComponent>
   );
 };
-
-export default BodyStory;
