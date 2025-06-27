@@ -24,8 +24,6 @@ const HomePageCardTitle = styled.h1`
 const HomePageCardContainterDescription = styled.p`
   font-size: 16px;
   color: white;
-  line-height: 1.6;
-  white-space: pre-line;
 `;
 
 const ScrollImageCard = (props: any) => {
