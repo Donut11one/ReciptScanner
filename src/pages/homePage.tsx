@@ -1,8 +1,10 @@
 import React from "react";
 import HeroSection from "../component/HomePage/HeroSection/HeroSection";
+import Footer from "../component/Footer/Footer";;
 import BodyStory from "../component/HomePage/BodyStory/BodyStory";
 import CatTyping from "../assets/CatTyping.gif";
 import HandScanning from "../assets/Scanning.gif";
+;
 
 import ScrollImageCard from "../component/HomePage/ScrollImage/ScrollImageCard";
 const HomePage: React.FC = () => {
@@ -52,7 +54,7 @@ const HomePage: React.FC = () => {
         />
       </div>
       <div className="footer">
-        <h1>footer placeholder</h1>
+        <Footer/>
       </div>
     </div>
   );
