@@ -35,7 +35,9 @@ const ScrollImageCard = (props: any) => {
     <HomePageCardContainer>
       <img src={imageSrc} alt={title} />
       <HomePageCardTitle>{title}</HomePageCardTitle>
-      <HomePageCardContainterDescription>{content}</HomePageCardContainterDescription>
+      <HomePageCardContainterDescription>
+        {content}
+      </HomePageCardContainterDescription>
     </HomePageCardContainer>
   );
 };
