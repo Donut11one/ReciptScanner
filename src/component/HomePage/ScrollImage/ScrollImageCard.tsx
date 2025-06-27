@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const CardContainer = styled.div`
-  max-width: 400px;
-  margin: 1rem;
+const HomePageCardContainer = styled.div`
+  margin: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,33 +10,33 @@ const CardContainer = styled.div`
   color: white;
 
   img {
-    width: 300px;
+    width: 100%;
     height: auto;
     object-fit: cover;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
   }
+`;
 
-  h4 {
-    font-size: 50px;
-  }
+const HomePageCardTitle = styled.h1`
+  font-size: 32px;
+`;
 
-  p {
-    font-size: 1rem;
-    color: white;
-    line-height: 1.6;
-    white-space: pre-line;
-  }
+const HomePageCardContainterDescription = styled.p`
+  font-size: 16px;
+  color: white;
+  line-height: 1.6;
+  white-space: pre-line;
 `;
 
 const ScrollImageCard = (props: any) => {
   const { title, content, imageSrc } = props;
 
   return (
-    <CardContainer>
+    <HomePageCardContainer>
       <img src={imageSrc} alt={title} />
-      <h4>{title}</h4>
-      <p>{content}</p>
-    </CardContainer>
+      <HomePageCardTitle>{title}</HomePageCardTitle>
+      <HomePageCardContainterDescription>{content}</HomePageCardContainterDescription>
+    </HomePageCardContainer>
   );
 };
 
