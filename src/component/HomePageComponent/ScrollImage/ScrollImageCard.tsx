@@ -2,41 +2,43 @@ import React from "react";
 import styled from "styled-components";
 
 const HomePageCardContainer = styled.div`
-  margin: 16px;
+  gap: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   color: white;
+  max-width: 350px;
 
-  img {
+  img.homepage_card-image {
     width: 100%;
-    height: auto;
-    margin-bottom: 16px;
+    height: 100%;
+
+
   }
 `;
 
 const HomePageCardTitle = styled.h1`
   font-size: 32px;
+  margin-bottom: 0px;
 `;
 
-const HomePageCardContainterDescription = styled.p`
+const HomePageCardDescription = styled.p`
   font-size: 16px;
   color: white;
+  margin-bottom:0px;
 `;
 
-const ScrollImageCard = (props: any) => {
+export const ScrollImageCard = (props: any) => {
   const { title, content, imageSrc } = props;
 
   return (
     <HomePageCardContainer>
-      <img src={imageSrc} alt={title} />
+      <img className="homepage_card-image" src={imageSrc} alt={title} />
       <HomePageCardTitle>{title}</HomePageCardTitle>
-      <HomePageCardContainterDescription>
+      <HomePageCardDescription>
         {content}
-      </HomePageCardContainterDescription>
+      </HomePageCardDescription>
     </HomePageCardContainer>
   );
 };
-
-export default ScrollImageCard;
