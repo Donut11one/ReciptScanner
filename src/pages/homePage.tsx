@@ -4,8 +4,8 @@ import Footer from "../component/Footer/Footer";
 import BodyStory from "../component/HomePage/BodyStory/BodyStory";
 import CatTyping from "../assets/CatTyping.gif";
 import HandScanning from "../assets/Scanning.gif";
-
 import ScrollImageCard from "../component/HomePage/ScrollImage/ScrollImageCard";
+
 const HomePage: React.FC = () => {
   return (
     <div>
