@@ -44,10 +44,10 @@ const BillRow: React.FC<BillRowProps> = ({
         <Dollar>$</Dollar> {totalAmount.toFixed(2)}
       </TableData>
       <TableData>
-        <Dollar>$</Dollar> {gst}
+        <Dollar>$</Dollar> {gst.toFixed(2)}
       </TableData>
       <TableData>
-        <Dollar>$</Dollar> {hst}
+        <Dollar>$</Dollar> {hst.toFixed(2)}
       </TableData>
       <TableData>{spendingCategory}</TableData>
       <TableData>{expenseItem}</TableData>
