@@ -12,11 +12,11 @@ const RecordPageBody = styled.div`
   padding: 80px;
 `;
 const ReciptRecordPage: React.FC = () => {
-  return(
+  return (
     <RecordPageBody>
-    <ReciptRecordPageComponent />
+      <ReciptRecordPageComponent />
     </RecordPageBody>
-  ) 
+  );
 };
 
 export default ReciptRecordPage;
