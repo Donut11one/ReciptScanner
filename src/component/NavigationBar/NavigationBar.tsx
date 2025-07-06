@@ -25,6 +25,9 @@ const NavigationBar: React.FC = () => {
           <Link to="/add" className="btn btn-dark fw-bold px-4">
             Add
           </Link>
+          <Link to="/record" className="btn btn-dark fw-bold px-4">
+            Record
+          </Link>
         </div>
 
         <div className="d-flex align-items-center gap-3">
