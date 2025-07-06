@@ -1,5 +1,5 @@
 import React from "react";
-import ProfilePage from "../component/ProfilePageComponent/ProfilePage";
+import ProfilePage from "../component/ProfilePageComponent/ProfilePageComponent";
 
 const ProfilePageWrapper: React.FC = () => {
   return <ProfilePage />;

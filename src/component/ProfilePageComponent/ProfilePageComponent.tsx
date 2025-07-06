@@ -22,7 +22,7 @@ const TableCard = styled.div`
   gap: 10px;
 `;
 
-const ProfilePage: React.FC = () => {
+const ProfilePageComponent: React.FC = () => {
   return (
     <PageWrapper>
         <TableCard>
@@ -33,4 +33,4 @@ const ProfilePage: React.FC = () => {
   );
 };
 
-export default ProfilePage;
+export default ProfilePageComponent;

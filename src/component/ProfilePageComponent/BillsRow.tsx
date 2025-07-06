@@ -19,9 +19,10 @@ type BillRowProps = {
   address: string;
   Date: string;
   TotalAmount: number;
-  Type: string;
-  TBD1: string;
-  TBD2: string;
+  GST: number;
+  HST: number;
+  SpendingCategory: string;
+  ExpenseItem:string;
 };
 
 const BillRow: React.FC<BillRowProps> = ({
@@ -29,9 +30,10 @@ const BillRow: React.FC<BillRowProps> = ({
   address,
   Date,
   TotalAmount,
-  Type,
-  TBD1,
-  TBD2
+  GST,
+  HST,
+  SpendingCategory,
+  ExpenseItem
 }) => {
   return (
     <TableRow>
@@ -39,9 +41,10 @@ const BillRow: React.FC<BillRowProps> = ({
       <TableData>{address}</TableData>
       <TableData>{Date}</TableData>
       <TableData><Dollar>$</Dollar> {TotalAmount.toFixed(2)}</TableData>
-      <TableData>{Type}</TableData>
-      <TableData>{TBD1}</TableData>
-      <TableData>{TBD2}</TableData>
+      <TableData><Dollar>$</Dollar> {GST}</TableData>
+      <TableData><Dollar>$</Dollar> {HST}</TableData>
+      <TableData>{SpendingCategory}</TableData>
+      <TableData>{ExpenseItem}</TableData>
     </TableRow>
   );
 };

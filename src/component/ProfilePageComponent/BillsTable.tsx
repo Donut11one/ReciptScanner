@@ -17,50 +17,56 @@ const TableHeader = styled.th`
 type Bill = {
   name: string;
   address: string;
-  dueDate: string;
+  Date: string;
   amount: number;
-  notes: string;
-  status: string;
-  method: string;
+  GST: number;
+  HST: number;
+  SpendingCategory: string;
+  ExpenseItem: string;
 };
 
 const bills: Bill[] = [
   {
     name: "RedPay Credit",
     address: "123 Main St",
-    dueDate: "01/28/19",
+    Date: "01/28/19",
     amount: 43.46,
-    notes: "Auto Pay",
-    status: "Paid",
-    method: "Credit Card"
+    GST: 12.12,
+    HST: 8.22,
+    SpendingCategory: "Investment",
+    ExpenseItem: "TBD"
   },
   {
-    name: "Rent",
-    address: "456 Elm St",
-    dueDate: "02/09/19",
-    amount: 1200.0,
-    notes: "Paid",
-    status: "Paid",
-    method: "Bank Transfer"
+    name: "T&T",
+    address: "22 Marine Drive",
+    Date: "01/28/25",
+    amount: 43.46,
+    GST: 12.12,
+    HST: 8.22,
+    SpendingCategory: "Groceries",
+    ExpenseItem: "TBD"
   },
   {
-    name: "TabFine Credit",
-    address: "789 Oak Ave",
-    dueDate: "02/22/19",
-    amount: 87.33,
-    notes: "Due Soon",
-    status: "Pending",
-    method: "Cash"
+    name: "鹿园",
+    address: "6270 Fraser",
+    Date: "05/22/25",
+    amount: 35.44,
+    GST: 2.12,
+    HST: 3.22,
+    SpendingCategory: "Client Meeting",
+    ExpenseItem: "TBD"
   },
   {
-    name: "ABC Loans",
-    address: "135 Pine Rd",
-    dueDate: "02/28/19",
-    amount: 400.0,
-    notes: "Pending",
-    status: "Overdue",
-    method: "Cheque"
+    name: "Staples",
+    address: "123 Main St",
+    Date: "01/28/19",
+    amount: 924.33,
+    GST: 122.3,
+    HST: 80.77,
+    SpendingCategory: "Office Supplies",
+    ExpenseItem: "TBD"
   }
+  
 ];
 
 const BillsTable: React.FC = () => {
@@ -68,13 +74,16 @@ const BillsTable: React.FC = () => {
     <Table>
       <thead>
         <tr>
-          <TableHeader>Name</TableHeader>
+
+          <TableHeader>Vendor Name</TableHeader>
           <TableHeader>Address</TableHeader>
           <TableHeader>Date</TableHeader>
           <TableHeader>Total Amount</TableHeader>
-          <TableHeader>Type</TableHeader>
-          <TableHeader>TBD</TableHeader>
-          <TableHeader>TBD</TableHeader>
+          <TableHeader>GST</TableHeader>
+          <TableHeader>HST</TableHeader>
+          <TableHeader>Spending Category</TableHeader>
+          <TableHeader>Expense Item</TableHeader>
+
         </tr>
       </thead>
       <tbody>
@@ -83,11 +92,12 @@ const BillsTable: React.FC = () => {
             key={index}
             name={bill.name}
             address={bill.address}
-            Date={bill.dueDate} 
+            Date={bill.Date} 
             TotalAmount={bill.amount}
-            Type={bill.notes}
-            TBD1={bill.status}
-            TBD2={bill.method}
+            GST={bill.GST}
+            HST={bill.HST}
+            SpendingCategory={bill.SpendingCategory}
+            ExpenseItem={bill.ExpenseItem}
           />
         ))}
       </tbody>
