@@ -17,40 +17,40 @@ const Dollar = styled.span`
 type BillRowProps = {
   name: string;
   address: string;
-  Date: string;
-  TotalAmount: number;
-  GST: number;
-  HST: number;
-  SpendingCategory: string;
-  ExpenseItem: string;
+  date: string;
+  totalAmount: number;
+  gst: number;
+  hst: number;
+  spendingCategory: string;
+  expenseItem: string;
 };
 
 const BillRow: React.FC<BillRowProps> = ({
   name,
   address,
-  Date,
-  TotalAmount,
-  GST,
-  HST,
-  SpendingCategory,
-  ExpenseItem,
+  date,
+  totalAmount,
+  gst,
+  hst,
+  spendingCategory,
+  expenseItem,
 }) => {
   return (
     <TableRow>
       <TableData>{name}</TableData>
       <TableData>{address}</TableData>
-      <TableData>{Date}</TableData>
+      <TableData>{date}</TableData>
       <TableData>
-        <Dollar>$</Dollar> {TotalAmount.toFixed(2)}
+        <Dollar>$</Dollar> {totalAmount.toFixed(2)}
       </TableData>
       <TableData>
-        <Dollar>$</Dollar> {GST}
+        <Dollar>$</Dollar> {gst}
       </TableData>
       <TableData>
-        <Dollar>$</Dollar> {HST}
+        <Dollar>$</Dollar> {hst}
       </TableData>
-      <TableData>{SpendingCategory}</TableData>
-      <TableData>{ExpenseItem}</TableData>
+      <TableData>{spendingCategory}</TableData>
+      <TableData>{expenseItem}</TableData>
     </TableRow>
   );
 };

@@ -11,54 +11,54 @@ const TableHeader = styled.th`
 type Bill = {
   name: string;
   address: string;
-  Date: string;
+  date: string;
   amount: number;
-  GST: number;
-  HST: number;
-  SpendingCategory: string;
-  ExpenseItem: string;
+  gst: number;
+  hst: number;
+  spendingCategory: string;
+  expenseItem: string;
 };
 
 const bills: Bill[] = [
   {
     name: "RedPay Credit",
     address: "123 Main St",
-    Date: "01/28/19",
+    date: "01/28/19",
     amount: 43.46,
-    GST: 12.12,
-    HST: 8.22,
-    SpendingCategory: "Investment",
-    ExpenseItem: "TBD"
+    gst: 12.12,
+    hst: 8.22,
+    spendingCategory: "Investment",
+    expenseItem: "TBD"
   },
   {
     name: "T&T",
     address: "22 Marine Drive",
-    Date: "01/28/25",
+    date: "01/28/25",
     amount: 43.46,
-    GST: 12.12,
-    HST: 8.22,
-    SpendingCategory: "Groceries",
-    ExpenseItem: "TBD"
+    gst: 12.12,
+    hst: 8.22,
+    spendingCategory: "Groceries",
+    expenseItem: "TBD"
   },
   {
     name: "鹿园",
     address: "6270 Fraser",
-    Date: "05/22/25",
+    date: "05/22/25",
     amount: 35.44,
-    GST: 2.12,
-    HST: 3.22,
-    SpendingCategory: "Client Meeting",
-    ExpenseItem: "TBD"
+    gst: 2.12,
+    hst: 3.22,
+    spendingCategory: "Client Meeting",
+    expenseItem: "TBD"
   },
   {
     name: "Staples",
     address: "123 Main St",
-    Date: "01/28/19",
+    date: "01/28/19",
     amount: 924.33,
-    GST: 122.3,
-    HST: 80.77,
-    SpendingCategory: "Office Supplies",
-    ExpenseItem: "TBD"
+    gst: 122.3,
+    hst: 80.77,
+    spendingCategory: "Office Supplies",
+    expenseItem: "TBD"
   }
 ];
 
@@ -85,12 +85,12 @@ const BillsTable: React.FC = () => {
             key={index}
             name={bill.name}
             address={bill.address}
-            Date={bill.Date} 
-            TotalAmount={bill.amount}
-            GST={bill.GST}
-            HST={bill.HST}
-            SpendingCategory={bill.SpendingCategory}
-            ExpenseItem={bill.ExpenseItem}
+            date={bill.date} 
+            totalAmount={bill.amount}
+            gst={bill.gst}
+            hst={bill.hst}
+            spendingCategory={bill.spendingCategory}
+            expenseItem={bill.expenseItem}
           />
         ))}
       </tbody>
