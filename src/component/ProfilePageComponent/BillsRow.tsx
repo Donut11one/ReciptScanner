@@ -11,23 +11,37 @@ const TableData = styled.td`
 `;
 
 const Dollar = styled.span`
-  color: #26c6da;
+  color: #7D46F2;
 `;
 
 type BillRowProps = {
   name: string;
-  dueDate: string;
-  amount: number;
-  number: string;
+  address: string;
+  Date: string;
+  TotalAmount: number;
+  Type: string;
+  TBD1: string;
+  TBD2: string;
 };
 
-const BillRow: React.FC<BillRowProps> = ({ name, dueDate, amount, number }) => {
+const BillRow: React.FC<BillRowProps> = ({
+  name,
+  address,
+  Date,
+  TotalAmount,
+  Type,
+  TBD1,
+  TBD2
+}) => {
   return (
     <TableRow>
       <TableData>{name}</TableData>
-      <TableData>{dueDate}</TableData>
-      <TableData><Dollar>$</Dollar> {amount.toFixed(2)}</TableData>
-      <TableData>{number}</TableData>
+      <TableData>{address}</TableData>
+      <TableData>{Date}</TableData>
+      <TableData><Dollar>$</Dollar> {TotalAmount.toFixed(2)}</TableData>
+      <TableData>{Type}</TableData>
+      <TableData>{TBD1}</TableData>
+      <TableData>{TBD2}</TableData>
     </TableRow>
   );
 };

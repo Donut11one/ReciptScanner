@@ -16,16 +16,51 @@ const TableHeader = styled.th`
 
 type Bill = {
   name: string;
+  address: string;
   dueDate: string;
   amount: number;
-  Address: string;
+  notes: string;
+  status: string;
+  method: string;
 };
 
 const bills: Bill[] = [
-  { name: "RedPay Credit", dueDate: "01/28/19", amount: 43.46, Address: "1" },
-  { name: "Rent", dueDate: "02/09/19", amount: 1200.0, Address: "1" },
-  { name: "TabFine Credit", dueDate: "02/22/19", amount: 87.33, Address: "2" },
-  { name: "ABC Loans", dueDate: "02/28/19", amount: 400.0, Address: "2" },
+  {
+    name: "RedPay Credit",
+    address: "123 Main St",
+    dueDate: "01/28/19",
+    amount: 43.46,
+    notes: "Auto Pay",
+    status: "Paid",
+    method: "Credit Card"
+  },
+  {
+    name: "Rent",
+    address: "456 Elm St",
+    dueDate: "02/09/19",
+    amount: 1200.0,
+    notes: "Paid",
+    status: "Paid",
+    method: "Bank Transfer"
+  },
+  {
+    name: "TabFine Credit",
+    address: "789 Oak Ave",
+    dueDate: "02/22/19",
+    amount: 87.33,
+    notes: "Due Soon",
+    status: "Pending",
+    method: "Cash"
+  },
+  {
+    name: "ABC Loans",
+    address: "135 Pine Rd",
+    dueDate: "02/28/19",
+    amount: 400.0,
+    notes: "Pending",
+    status: "Overdue",
+    method: "Cheque"
+  }
 ];
 
 const BillsTable: React.FC = () => {
@@ -33,10 +68,13 @@ const BillsTable: React.FC = () => {
     <Table>
       <thead>
         <tr>
-          <TableHeader>Location</TableHeader>
-          <TableHeader>Payment Due</TableHeader>
-          <TableHeader>Payment Amount</TableHeader>
+          <TableHeader>Name</TableHeader>
           <TableHeader>Address</TableHeader>
+          <TableHeader>Date</TableHeader>
+          <TableHeader>Total Amount</TableHeader>
+          <TableHeader>Type</TableHeader>
+          <TableHeader>TBD</TableHeader>
+          <TableHeader>TBD</TableHeader>
         </tr>
       </thead>
       <tbody>
@@ -44,9 +82,12 @@ const BillsTable: React.FC = () => {
           <BillRow
             key={index}
             name={bill.name}
-            dueDate={bill.dueDate}
-            amount={bill.amount}
-            number={bill.Address}
+            address={bill.address}
+            Date={bill.dueDate} 
+            TotalAmount={bill.amount}
+            Type={bill.notes}
+            TBD1={bill.status}
+            TBD2={bill.method}
           />
         ))}
       </tbody>
