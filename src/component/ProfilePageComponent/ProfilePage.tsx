@@ -3,29 +3,47 @@ import styled from "styled-components";
 import BillsTable from "./BillsTable";
 import SidebarMenu from "./SideBarMenu";
 
-const ProfileContainer = styled.div`
+const PageWrapper = styled.div`
   background-color: #1e1f2f;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 20px;
   font-family: 'Segoe UI', sans-serif;
 `;
 
-const MainSection = styled.div`
-  flex: 1;
-  padding: 40px;
-  overflow-x: auto;
+const Layout = styled.div`
+  display: flex;
+  gap: 40px;
+`;
+
+const IconColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const TableCard = styled.div`
+  background-color: #2a2b3d;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 `;
 
 const ProfilePage: React.FC = () => {
   return (
-    <ProfileContainer>
-      <SidebarMenu />
-      <MainSection>
-        <BillsTable />
-      </MainSection>
-    </ProfileContainer>
+    <PageWrapper>
+      <Layout>
+        <IconColumn>
+          <SidebarMenu />
+        </IconColumn>
+        <TableCard>
+          <BillsTable />
+        </TableCard>
+      </Layout>
+    </PageWrapper>
   );
 };
 

@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
         <FooterLinkGroup>
           <FooterPageLink href="#">Home</FooterPageLink>
           <FooterPageLink href="/add">Add</FooterPageLink>
-          <FooterPageLink href="#">Support</FooterPageLink>
+          <FooterPageLink href="/profile">Support</FooterPageLink>
         </FooterLinkGroup>
       </FooterSection>
 

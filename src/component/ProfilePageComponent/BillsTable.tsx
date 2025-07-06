@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import BillRow from "./BillsRow";
 
 const Table = styled.table`
   width: 100%;
@@ -10,21 +11,22 @@ const TableHeader = styled.th`
   text-align: left;
   padding: 12px;
   font-weight: normal;
-  color: grey;
+  color: #9ca3af;
 `;
 
-const TableRow = styled.tr`
-  border-bottom: 1px solid grey;
-`;
+type Bill = {
+  name: string;
+  dueDate: string;
+  amount: number;
+  Address: string;
+};
 
-const TableData = styled.td`
-  padding: 12px;
-  color: white;
-`;
-
-const Dollar = styled.span`
-  color: #7D46F2;
-`;
+const bills: Bill[] = [
+  { name: "RedPay Credit", dueDate: "01/28/19", amount: 43.46, Address: "1" },
+  { name: "Rent", dueDate: "02/09/19", amount: 1200.0, Address: "1" },
+  { name: "TabFine Credit", dueDate: "02/22/19", amount: 87.33, Address: "2" },
+  { name: "ABC Loans", dueDate: "02/28/19", amount: 400.0, Address: "2" },
+];
 
 const BillsTable: React.FC = () => {
   return (
@@ -34,29 +36,19 @@ const BillsTable: React.FC = () => {
           <TableHeader>Location</TableHeader>
           <TableHeader>Payment Due</TableHeader>
           <TableHeader>Payment Amount</TableHeader>
+          <TableHeader>Address</TableHeader>
         </tr>
       </thead>
       <tbody>
-        <TableRow>
-          <TableData>TnT</TableData>
-          <TableData>01/28/19</TableData>
-          <TableData><Dollar>$</Dollar> 43.46</TableData>
-        </TableRow>
-        <TableRow>
-          <TableData>Walmart</TableData>
-          <TableData>02/09/19</TableData>
-          <TableData><Dollar>$</Dollar> 1200.00</TableData>
-        </TableRow>
-        <TableRow>
-          <TableData>Superstore</TableData>
-          <TableData>02/22/19</TableData>
-          <TableData><Dollar>$</Dollar> 87.33</TableData>
-        </TableRow>
-        <TableRow>
-          <TableData>BestBuy</TableData>
-          <TableData>02/28/19</TableData>
-          <TableData><Dollar>$</Dollar> 400.00</TableData>
-        </TableRow>
+        {bills.map((bill, index) => (
+          <BillRow
+            key={index}
+            name={bill.name}
+            dueDate={bill.dueDate}
+            amount={bill.amount}
+            number={bill.Address}
+          />
+        ))}
       </tbody>
     </Table>
   );
