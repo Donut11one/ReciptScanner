@@ -60,7 +60,6 @@ const bills: Bill[] = [
     SpendingCategory: "Office Supplies",
     ExpenseItem: "TBD"
   }
-  
 ];
 
 const BillsTable: React.FC = () => {

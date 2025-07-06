@@ -14,7 +14,7 @@ const PageWrapper = styled.div`
 `;
 
 const TableCard = styled.div`
-  display:flex;
+  display: flex;
   background-color: #2a2b3d;
   border-radius: 10px;
   padding: 20px;
@@ -25,10 +25,10 @@ const TableCard = styled.div`
 const ProfilePageComponent: React.FC = () => {
   return (
     <PageWrapper>
-        <TableCard>
-          <SidebarMenu />
-          <BillsTable />
-        </TableCard>
+      <TableCard>
+        <SidebarMenu />
+        <BillsTable />
+      </TableCard>
     </PageWrapper>
   );
 };

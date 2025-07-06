@@ -11,7 +11,7 @@ const TableData = styled.td`
 `;
 
 const Dollar = styled.span`
-  color: #7D46F2;
+  color: #7d46f2;
 `;
 
 type BillRowProps = {
@@ -22,7 +22,7 @@ type BillRowProps = {
   GST: number;
   HST: number;
   SpendingCategory: string;
-  ExpenseItem:string;
+  ExpenseItem: string;
 };
 
 const BillRow: React.FC<BillRowProps> = ({
@@ -33,16 +33,22 @@ const BillRow: React.FC<BillRowProps> = ({
   GST,
   HST,
   SpendingCategory,
-  ExpenseItem
+  ExpenseItem,
 }) => {
   return (
     <TableRow>
       <TableData>{name}</TableData>
       <TableData>{address}</TableData>
       <TableData>{Date}</TableData>
-      <TableData><Dollar>$</Dollar> {TotalAmount.toFixed(2)}</TableData>
-      <TableData><Dollar>$</Dollar> {GST}</TableData>
-      <TableData><Dollar>$</Dollar> {HST}</TableData>
+      <TableData>
+        <Dollar>$</Dollar> {TotalAmount.toFixed(2)}
+      </TableData>
+      <TableData>
+        <Dollar>$</Dollar> {GST}
+      </TableData>
+      <TableData>
+        <Dollar>$</Dollar> {HST}
+      </TableData>
       <TableData>{SpendingCategory}</TableData>
       <TableData>{ExpenseItem}</TableData>
     </TableRow>
