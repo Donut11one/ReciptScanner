@@ -5,6 +5,7 @@ import AddReciptPage from "./pages/addReciptPage";
 import ErrorPage from "./pages/errorPage";
 import ReciptRecordPage from "./pages/reciptRecordPage";
 import NavigationBar from "./component/NavigationBar/NavigationBar";
+import Footer from "./component/Footer/Footer"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,9 +17,10 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/add" element={<AddReciptPage />} />
-        <Route path="/profile" element={<ReciptRecordPage />} />
+        <Route path="/record" element={<ReciptRecordPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 };
