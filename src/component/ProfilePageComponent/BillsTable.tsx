@@ -2,16 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import BillRow from "./BillsRow";
 
-const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-`;
-
 const TableHeader = styled.th`
   text-align: left;
   padding: 12px;
-  font-weight: normal;
-  color: #9ca3af;
+  color: #FFFFFF;
 `;
 
 type Bill = {
@@ -71,7 +65,7 @@ const bills: Bill[] = [
 
 const BillsTable: React.FC = () => {
   return (
-    <Table>
+    <table>
       <thead>
         <tr>
 
@@ -101,7 +95,7 @@ const BillsTable: React.FC = () => {
           />
         ))}
       </tbody>
-    </Table>
+    </table>
   );
 };
 
