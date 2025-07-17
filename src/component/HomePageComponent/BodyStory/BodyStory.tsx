@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const BodyStoryComponent = styled.div`
-  background-color: black;
-  color: white;
+  color: #FFFFFF;
   padding: 32px 80px;
   display: flex;
   flex-direction: row;

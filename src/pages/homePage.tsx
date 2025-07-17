@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../component/Footer/Footer";
 import CatTyping from "../assets/CatTyping.gif";
 import HandScanning from "../assets/Scanning.gif";
 import {
@@ -8,10 +7,15 @@ import {
   BodyStory,
 } from "../component/HomePageComponent";
 import chainBreak from "../assets/ChainBroken.jpg";
+import styled from "styled-components";
+
+const HomePageBody = styled.div`
+  background-color: #212529;
+`;
 
 const HomePage: React.FC = () => {
   return (
-    <div>
+    <HomePageBody>
       <div className="hero-section">
         <HeroSection />
       </div>
@@ -32,9 +36,18 @@ const HomePage: React.FC = () => {
         `}
         />
       </div>
-      <div className="body-scrollable-image-section bg-black">
-        <h1 style={{marginBottom:"64px", fontSize:"64px", textAlign:"center", color:"white"}}>About The App</h1>
-        <div style ={{display:"flex", justifyContent:"center", gap:"80px"}}>
+      <div className="body-scrollable-image-section">
+        <h1
+          style={{
+            marginBottom: "64px",
+            fontSize: "64px",
+            textAlign: "center",
+            color: "white",
+          }}
+        >
+          About The App
+        </h1>
+        <div style={{ display: "flex", justifyContent: "center", gap: "80px" }}>
           <ScrollImageCard
             title="Place Holder 1"
             imageSrc={chainBreak}
@@ -58,7 +71,7 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-    </div>
+    </HomePageBody>
   );
 };
 

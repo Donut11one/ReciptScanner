@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { BillsTable, SidebarMenu } from "../component/BillTable";
+import { BillsTable } from "../component/BillTable";
 
 const RecordPageBody = styled.div`
-  background-color: #1e1f2f;
+  background-color: #212529;
   color: white;
   min-height: 100vh;
   display: flex;

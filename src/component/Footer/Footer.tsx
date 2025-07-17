@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Container
 const FooterContainer = styled.div`
-  background-color: #000000;
+  background-color: #212529;
   color: #FFFFFF;
   padding: 60px 20px 30px;
   display: flex;
