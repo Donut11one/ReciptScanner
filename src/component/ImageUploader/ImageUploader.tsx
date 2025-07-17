@@ -1,24 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { createWorker } from "tesseract.js";
 import "./ImageUploader.scss";
+import { useInputTable } from "../../hooks";
 
 const ImageUploader: React.FC = () => {
-  const [imageURL, setImageURL] = useState<string | null>(null);
-  const [recognitionText, setRecognitionText] = useState<string>("");
-
-  useEffect(() => {
-    if (imageURL) {
-      tesseractRecognition(imageURL);
-    }
-  }, [imageURL]);
-
-  const tesseractRecognition = async (imageUrl: string) => {
-    const worker = await createWorker("eng");
-    const ret = await worker.recognize(imageUrl);
-    setRecognitionText(ret.data.text);
-    console.log(ret.data.text);
-    await worker.terminate();
-  };
+  const { imageURL, setImageURL, responseText } =
+    useInputTable();
 
   const handleFileChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -50,9 +36,7 @@ const ImageUploader: React.FC = () => {
           />
         </div>
       )}
-      {recognitionText && (
-        <h1>{recognitionText}</h1>
-      )}
+      {responseText && <h1>{responseText}</h1>}
     </div>
   );
 };

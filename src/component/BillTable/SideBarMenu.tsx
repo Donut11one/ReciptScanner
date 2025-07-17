@@ -18,7 +18,7 @@ const SidebarIcon = styled.div`
   margin: 20px 0;
 `;
 
-const SidebarMenu: React.FC = () => {
+export const SidebarMenu: React.FC = () => {
   return (
     <Sidebar>
       <SidebarIcon />
@@ -27,5 +27,3 @@ const SidebarMenu: React.FC = () => {
     </Sidebar>
   );
 };
-
-export default SidebarMenu;

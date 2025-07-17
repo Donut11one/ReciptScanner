@@ -1,10 +1,12 @@
 import React from 'react';
-import ImageUploader from '../component/TranslateSection/ImageUploader/ImageUploader';
+import ImageUploader from '../component/ImageUploader/ImageUploader';
+import { BillsTable } from '../component/BillTable';
 const AddReciptPage: React.FC = () => {
     return (
-        <div>
-            <ImageUploader/>
-        </div>
+        <>
+            <ImageUploader />
+            <BillsTable />
+        </>
     );
 };
 

@@ -25,7 +25,7 @@ type BillRowProps = {
   expenseItem: string;
 };
 
-const BillRow: React.FC<BillRowProps> = ({
+export const BillRow: React.FC<BillRowProps> = ({
   name,
   address,
   date,
@@ -54,5 +54,3 @@ const BillRow: React.FC<BillRowProps> = ({
     </TableRow>
   );
 };
-
-export default BillRow;
