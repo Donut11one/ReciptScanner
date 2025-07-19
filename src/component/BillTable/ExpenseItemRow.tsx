@@ -15,11 +15,11 @@ const Dollar = styled.span`
   color: #7d46f2;
 `;
 
-type BillRowProps = {
+type ExpenseBillRowProps = {
   expenseItem: ExpenseReportItem;
 };
 
-export const BillRow: React.FC<BillRowProps> = ({
+export const ExpenseItemRow: React.FC<ExpenseBillRowProps> = ({
   expenseItem,
 }) => {
   return (

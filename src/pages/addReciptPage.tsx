@@ -1,6 +1,6 @@
 import React from "react";
 import ImageUploader from "../component/ImageUploader/ImageUploader";
-import { BillsTable } from "../component/BillTable";
+import { ExpenseReportTable } from "../component/BillTable";
 import { ExpenseReportItem } from "../types";
 const AddReciptPage: React.FC = () => {
   const expenseReportItems: ExpenseReportItem[] = [
@@ -41,7 +41,7 @@ const AddReciptPage: React.FC = () => {
   return (
     <>
       <ImageUploader />
-      <BillsTable expenseItems={expenseReportItems}/>
+      <ExpenseReportTable expenseItems={expenseReportItems}/>
     </>
   );
 };

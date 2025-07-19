@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BillRow } from "./BillsRow";
+import { ExpenseItemRow } from "./ExpenseItemRow";
 import { SidebarMenu } from "./SideBarMenu";
 import { ExpenseReportItem } from "../../types";
 
@@ -19,12 +19,12 @@ const TableContainer = styled.div`
   padding: 16px;
 `;
 
-export type BillTableProps = {
+export type ExpenseReportTableProps = {
   hasSideBar?: boolean;
   expenseItems: ExpenseReportItem[];
 };
 
-export const BillsTable: React.FC<BillTableProps> = ({
+export const ExpenseReportTable: React.FC<ExpenseReportTableProps> = ({
   hasSideBar = false,
   expenseItems,
 }) => {
@@ -45,7 +45,7 @@ export const BillsTable: React.FC<BillTableProps> = ({
         </thead>
         <tbody>
           {expenseItems.map((item, index) => (
-            <BillRow key={index} expenseItem={item} />
+            <ExpenseItemRow key={index} expenseItem={item} />
           ))}
         </tbody>
       </table>

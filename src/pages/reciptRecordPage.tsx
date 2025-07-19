@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BillsTable } from "../component/BillTable";
+import { ExpenseReportTable } from "../component/BillTable";
 import { ExpenseReportItem } from "../types";
 
 const RecordPageBody = styled.div`
@@ -51,7 +51,7 @@ const ReciptRecordPage: React.FC = () => {
     ];
   return (
     <RecordPageBody>
-      <BillsTable hasSideBar expenseItems={expenseReportItems}/>
+      <ExpenseReportTable hasSideBar expenseItems={expenseReportItems}/>
     </RecordPageBody>
   );
 };
