@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import ReciptRecordPageComponent from "../component/ReciptRecordPageComponent/ReciptRecordComponent";
+import { BillsTable } from "../component/BillTable";
 
 const RecordPageBody = styled.div`
-  background-color: #1e1f2f;
+  background-color: #212529;
   color: white;
   min-height: 100vh;
   display: flex;
@@ -11,10 +11,11 @@ const RecordPageBody = styled.div`
   align-items: flex-start;
   padding: 80px;
 `;
+
 const ReciptRecordPage: React.FC = () => {
   return (
     <RecordPageBody>
-      <ReciptRecordPageComponent />
+      <BillsTable hasSideBar/>
     </RecordPageBody>
   );
 };
