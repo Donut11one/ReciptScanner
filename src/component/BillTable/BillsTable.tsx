@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BillRow } from "./BillsRow";
 import { SidebarMenu } from "./SideBarMenu";
+import { ExpenseReportItem } from "../../types";
 
 const TableHeader = styled.th`
   text-align: left;
@@ -18,90 +19,33 @@ const TableContainer = styled.div`
   padding: 16px;
 `;
 
-type Bill = {
-  name: string;
-  address: string;
-  date: string;
-  amount: number;
-  gst: number;
-  hst: number;
-  spendingCategory: string;
-  expenseItem: string;
+export type BillTableProps = {
+  hasSideBar?: boolean;
+  expenseItems: ExpenseReportItem[];
 };
 
-const bills: Bill[] = [
-  {
-    name: "RedPay Credit",
-    address: "123 Main St",
-    date: "01/28/19",
-    amount: 43.46,
-    gst: 12.12,
-    hst: 8.22,
-    spendingCategory: "Investment",
-    expenseItem: "TBD",
-  },
-  {
-    name: "T&T",
-    address: "22 Marine Drive",
-    date: "01/28/25",
-    amount: 43.46,
-    gst: 12.12,
-    hst: 8.22,
-    spendingCategory: "Groceries",
-    expenseItem: "TBD",
-  },
-  {
-    name: "鹿园",
-    address: "6270 Fraser",
-    date: "05/22/25",
-    amount: 35.44,
-    gst: 2.12,
-    hst: 3.22,
-    spendingCategory: "Client Meeting",
-    expenseItem: "TBD",
-  },
-  {
-    name: "Staples",
-    address: "123 Main St",
-    date: "01/28/19",
-    amount: 924.33,
-    gst: 122.3,
-    hst: 80.77,
-    spendingCategory: "Office Supplies",
-    expenseItem: "TBD",
-  },
-];
-
-export const BillsTable: React.FC<{hasSideBar?: boolean}> = ({hasSideBar = false}) => {
+export const BillsTable: React.FC<BillTableProps> = ({
+  hasSideBar = false,
+  expenseItems,
+}) => {
   return (
     <TableContainer>
-      {hasSideBar && (<SidebarMenu />)}
+      {hasSideBar && <SidebarMenu />}
       <table>
         <thead>
           <tr>
             <TableHeader>Vendor Name</TableHeader>
-            <TableHeader>Address</TableHeader>
             <TableHeader>Date</TableHeader>
-            <TableHeader>Total Amount</TableHeader>
+            <TableHeader>Sub Total</TableHeader>
             <TableHeader>GST</TableHeader>
             <TableHeader>HST</TableHeader>
-            <TableHeader>Spending Category</TableHeader>
-            <TableHeader>Expense Item</TableHeader>
+            <TableHeader>Total</TableHeader>
+            
           </tr>
         </thead>
         <tbody>
-          {bills.map((bill, index) => (
-            <BillRow
-              key={index}
-              name={bill.name}
-              address={bill.address}
-              date={bill.date}
-              totalAmount={bill.amount}
-              gst={bill.gst}
-              hst={bill.hst}
-              spendingCategory={bill.spendingCategory}
-              expenseItem={bill.expenseItem}
-            />
+          {expenseItems.map((item, index) => (
+            <BillRow key={index} expenseItem={item} />
           ))}
         </tbody>
       </table>

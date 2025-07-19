@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ExpenseReportItem } from "../../types";
 
 const TableRow = styled.tr`
   border-bottom: 1px solid #3e3f4e;
@@ -15,42 +16,28 @@ const Dollar = styled.span`
 `;
 
 type BillRowProps = {
-  name: string;
-  address: string;
-  date: string;
-  totalAmount: number;
-  gst: number;
-  hst: number;
-  spendingCategory: string;
-  expenseItem: string;
+  expenseItem: ExpenseReportItem;
 };
 
 export const BillRow: React.FC<BillRowProps> = ({
-  name,
-  address,
-  date,
-  totalAmount,
-  gst,
-  hst,
-  spendingCategory,
   expenseItem,
 }) => {
   return (
     <TableRow>
-      <TableData>{name}</TableData>
-      <TableData>{address}</TableData>
-      <TableData>{date}</TableData>
+      <TableData>{expenseItem.vendorName}</TableData>
+      <TableData>{expenseItem.date}</TableData>
       <TableData>
-        <Dollar>$</Dollar> {totalAmount.toFixed(2)}
+        <Dollar>$</Dollar> {expenseItem.subTotal.toFixed(2)}
       </TableData>
       <TableData>
-        <Dollar>$</Dollar> {gst.toFixed(2)}
+        <Dollar>$</Dollar> {expenseItem.gst.toFixed(2)}
       </TableData>
       <TableData>
-        <Dollar>$</Dollar> {hst.toFixed(2)}
+        <Dollar>$</Dollar> {expenseItem.hst.toFixed(2)}
       </TableData>
-      <TableData>{spendingCategory}</TableData>
-      <TableData>{expenseItem}</TableData>
+      <TableData>
+        <Dollar>$</Dollar> {expenseItem.total.toFixed(2)}
+      </TableData>
     </TableRow>
   );
 };
