@@ -2,7 +2,10 @@ import React from "react";
 import ImageUploader from "../component/ImageUploader/ImageUploader";
 import { ExpenseReportTable } from "../component/BillTable";
 import { ExpenseReportItem } from "../types";
+import { useInputTable } from "../hooks"
 const AddReciptPage: React.FC = () => {
+  const {newExpenseReportItem} = useInputTable();
+
   const expenseReportItems: ExpenseReportItem[] = [
     {
       vendorName: "RedPay Credit",
@@ -38,10 +41,12 @@ const AddReciptPage: React.FC = () => {
       hst: 80.77,
     },
   ];
+  
+  const renderTable = newExpenseReportItem ? [...expenseReportItems, newExpenseReportItem] : [...expenseReportItems];
   return (
     <>
       <ImageUploader />
-      <ExpenseReportTable expenseItems={expenseReportItems}/>
+      <ExpenseReportTable expenseItems={renderTable}/>
     </>
   );
 };
