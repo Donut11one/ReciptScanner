@@ -18,7 +18,7 @@ const InputTableContext = createContext<InputTableContexttype>({
   responseText: "",
   setResponseText: () => {},
   newExpenseReportItem: null,
-  setNewExpenseReportItem: () => {}
+  setNewExpenseReportItem: () => {},
 });
 
 const InputTableProvider: FC<{ children: React.ReactNode }> = ({
@@ -26,15 +26,15 @@ const InputTableProvider: FC<{ children: React.ReactNode }> = ({
 }) => {
   const [imageURL, setImageURL] = useState<string>("");
   const [responseText, setResponseText] = useState<string>("");
-  const [newExpenseReportItem, setNewExpenseReportItem] = useState<ExpenseReportItem>(null);
+  const [newExpenseReportItem, setNewExpenseReportItem] =
+    useState<ExpenseReportItem>(null);
 
   useEffect(() => {
     if (imageURL) {
       const tesseractResponse = tesseractRecognition(imageURL);
-      tesseractResponse.then(data =>{
+      tesseractResponse.then((data) => {
         analyzeResponse(data);
       });
-
     }
   }, [imageURL]);
 
@@ -44,30 +44,105 @@ const InputTableProvider: FC<{ children: React.ReactNode }> = ({
     const ret = await worker.recognize(imageUrl);
     setResponseText(ret.data.text);
     await worker.terminate();
-    return ret.data.text
+    return ret.data.text;
   };
-  
-  const analyzeResponse = (tesseractResponse: string)=>{
-    const responseArray = tesseractResponse.split("\n");
-    
-    const tempExpenseReportItem: ExpenseReportItem = {
-      vendorName: responseArray[0],
-      date: responseArray[1],
-      subTotal: 1,
-      total: 2,
-      gst: 3,
-      hst: 4
+
+  const analyzeResponse = (tesseractResponse: string) => {
+    // Split the OCR text into lines, trim whitespace, and remove empty lines
+    const responseArray = tesseractResponse
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0);
+
+    // Assume the vendor name is the first line
+    const responseVendorName = responseArray[0];
+
+    // Initialize extracted values
+    let responseDate: string = "";
+    let responseSubTotal: number = 0;
+    let responseTotal: number = 0;
+    let responseGST: number = 0;
+    let responseHST: number = 0;
+
+    // Regex for matching common date formats (e.g., YYYY-MM-DD, DD/MM/YYYY) Copied from online
+    const dateRegex =
+      /\b(20\d{2}[\/\-\.]?\d{1,2}[\/\-\.]?\d{1,2}|\d{1,2}[\/\-\.]\d{1,2}[\/\-\.]20\d{2})\b/;
+
+    // Regex for extracting monetary values
+    const moneyRegex = /\$?(\d+\.\d{2})/;
+
+    // Loop through all lines to find date, subtotal, total, GST, and HST
+    for (let i = 0; i < responseArray.length; i++) {
+      const line = responseArray[i];
+      const lowerLine = line.toLowerCase();
+
+      // Extract the first matching date
+      if (dateRegex.test(line)) {
+        const match = line.match(dateRegex);
+        if (match !== null) {
+          responseDate = match[0];
+        }
+      }
+
+      // Extract subtotal from lines that include the word "sub"
+      if (lowerLine.includes("sub") && moneyRegex.test(line)) {
+        const match = line.match(moneyRegex);
+        if (match !== null) {
+          responseSubTotal = parseFloat(match[1]); // Use match[1] to exclude the dollar sign
+        }
+      }
+
+      // Extract GST from lines that include "gst"
+      if (lowerLine.includes("gst") && moneyRegex.test(line)) {
+        const match = line.match(moneyRegex);
+        if (match !== null) {
+          responseGST = parseFloat(match[1]);
+        }
+      }
+
+      // Extract HST from lines that include "hst"
+      if (lowerLine.includes("pst") && moneyRegex.test(line)) {
+        const match = line.match(moneyRegex);
+        if (match !== null) {
+          responseHST = parseFloat(match[1]);
+        }
+      }
+
+      // Extract total from lines that include "total"
+      if (!(lowerLine.includes("sub")) &&lowerLine.includes("total") && moneyRegex.test(line)) {
+        const match = line.match(moneyRegex);
+        if (match !== null) {
+          responseTotal = parseFloat(match[1]);
+        }
+      }
     }
+
+    // Create a new ExpenseReportItem object with the extracted values
+    const tempExpenseReportItem: ExpenseReportItem = {
+      vendorName: responseVendorName,
+      date: responseDate,
+      subTotal: responseSubTotal,
+      total: responseTotal,
+      gst: responseGST,
+      hst: responseHST,
+    };
+
+    // Update state or parent component with the new item
     setNewExpenseReportItem(tempExpenseReportItem);
-  }
+  };
 
   const context = useMemo<InputTableContexttype>(
-    () => ({ imageURL, setImageURL, responseText, setResponseText, newExpenseReportItem, setNewExpenseReportItem }),
+    () => ({
+      imageURL,
+      setImageURL,
+      responseText,
+      setResponseText,
+      newExpenseReportItem,
+      setNewExpenseReportItem,
+    }),
     [imageURL, responseText, newExpenseReportItem]
   );
 
-
-  
   return (
     <InputTableContext.Provider value={context}>
       {children}
