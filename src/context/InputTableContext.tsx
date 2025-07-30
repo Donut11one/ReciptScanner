@@ -51,10 +51,10 @@ const InputTableProvider: FC<{ children: React.ReactNode }> = ({
     // Split the OCR text into lines, trim whitespace, and remove empty lines
     const responseArray = tesseractResponse
       .split("\n")
-      .map((line) => line.trim())
-      .filter((line) => line.length > 0);
+      .map((lowercaseLine) => lowercaseLine.trim())
+      .filter((lowercaseLine) => lowercaseLine.length > 0);
 
-    // Assume the vendor name is the first line
+    // Assume the vendor name is the first lowercaseLine
     const responseVendorName = responseArray[0];
 
     // Initialize extracted values
@@ -71,51 +71,53 @@ const InputTableProvider: FC<{ children: React.ReactNode }> = ({
     // Regex for extracting monetary values
     const moneyRegex = /\$?(\d+\.\d{2})/;
 
+    const subtotalRegex= /(sub|net)(\s|-)?total/
+
     // Loop through all lines to find date, subtotal, total, GST, and HST
-    for (let i = 0; i < responseArray.length; i++) {
-      const line = responseArray[i];
-      const lowerLine = line.toLowerCase();
+    responseArray.forEach((line)=>{
+      const lowercaseLine = line.toLowerCase();
 
       // Extract the first matching date
-      if (dateRegex.test(line)) {
-        const match = line.match(dateRegex);
+      if (dateRegex.test(lowercaseLine)) {
+        const match = lowercaseLine.match(dateRegex);
         if (match !== null) {
           responseDate = match[0];
         }
       }
 
       // Extract subtotal from lines that include the word "sub"
-      if (lowerLine.includes("sub") && moneyRegex.test(line)) {
-        const match = line.match(moneyRegex);
+      if (subtotalRegex.test(lowercaseLine) && moneyRegex.test(lowercaseLine)) {
+        const match = lowercaseLine.match(moneyRegex);
         if (match !== null) {
-          responseSubTotal = parseFloat(match[1]); // Use match[1] to exclude the dollar sign
+          console.log(match[match.length - 1])
+          responseSubTotal = parseFloat(match[match.length - 1]);
         }
       }
 
       // Extract GST from lines that include "gst"
-      if (lowerLine.includes("gst") && moneyRegex.test(line)) {
-        const match = line.match(moneyRegex);
+      if (lowercaseLine.includes("gst") && moneyRegex.test(lowercaseLine)) {
+        const match = lowercaseLine.match(moneyRegex);
         if (match !== null) {
-          responseGST = parseFloat(match[1]);
+          responseGST = parseFloat(match[match.length - 1]);
         }
       }
 
-      // Extract HST from lines that include "hst"
-      if (lowerLine.includes("pst") && moneyRegex.test(line)) {
-        const match = line.match(moneyRegex);
+      // Extract HST from lines that include "pst"
+      if (lowercaseLine.includes("pst") && moneyRegex.test(lowercaseLine)) {
+        const match = lowercaseLine.match(moneyRegex);
         if (match !== null) {
-          responseHST = parseFloat(match[1]);
+          responseHST = parseFloat(match[match.length - 1]);
         }
       }
 
       // Extract total from lines that include "total"
-      if (!(lowerLine.includes("sub")) &&lowerLine.includes("total") && moneyRegex.test(line)) {
-        const match = line.match(moneyRegex);
+      if (!(lowercaseLine.includes("sub")) &&lowercaseLine.includes("total") && moneyRegex.test(lowercaseLine)) {
+        const match = lowercaseLine.match(moneyRegex);
         if (match !== null) {
-          responseTotal = parseFloat(match[1]);
+          responseTotal = parseFloat(match[match.length - 1]);
         }
       }
-    }
+    })
 
     // Create a new ExpenseReportItem object with the extracted values
     const tempExpenseReportItem: ExpenseReportItem = {
